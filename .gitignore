@@ -1,4 +1,25 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Environment
+# Real values must never be committed. In particular REPORT_WEBHOOK_URL is a
+# secret in practice: anyone holding it can append rows to the supervisor sheet.
 .env
-data/state.json
+.env.*
+!.env.example
+
+# Runtime state and report logs.
+# data/ holds state.json, reports.csv and reports-clusters.csv. The report files
+# contain real operator names and call counts, so they must stay out of the repo.
+data/
+*.csv
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor and OS
+.vscode/
+.idea/
 .DS_Store
+Thumbs.db
